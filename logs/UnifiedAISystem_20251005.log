@@ -1,0 +1,39 @@
+2025-10-05 23:25:49,275 - UnifiedAISystem - INFO - logger - info - Initializing subsystems...
+2025-10-05 23:25:49,520 - UnifiedAISystem - INFO - logger - info - Brain simulation initialized
+2025-10-05 23:25:49,520 - UnifiedAISystem - INFO - logger - info - Quantum processor initialized
+2025-10-05 23:25:49,521 - UnifiedAISystem - INFO - logger - info - Neural network initialized
+2025-10-05 23:25:49,521 - UnifiedAISystem - INFO - logger - info - Intelligent agent initialized
+2025-10-05 23:25:49,521 - UnifiedAISystem - INFO - logger - info - System coordinator initialized
+2025-10-05 23:25:49,521 - UnifiedAISystem - INFO - logger - info - Unified AI System fully initialized
+2025-10-05 23:25:49,527 - UnifiedAISystem - INFO - logger - info - Processing input with task type: general
+2025-10-05 23:25:49,527 - UnifiedAISystem - INFO - logger - info - Routing to systems: ['brain', 'neural', 'agent']
+2025-10-05 23:25:49,650 - UnifiedAISystem - DEBUG - logger - debug - Brain processing complete
+2025-10-05 23:25:49,650 - UnifiedAISystem - DEBUG - logger - debug - Neural processing complete
+2025-10-05 23:25:49,651 - UnifiedAISystem - DEBUG - logger - debug - Agent processing complete
+2025-10-05 23:25:49,651 - UnifiedAISystem - INFO - logger - info - Processing complete
+2025-10-05 23:26:13,673 - UnifiedAISystem - INFO - logger - info - Initializing subsystems...
+2025-10-05 23:26:13,961 - UnifiedAISystem - INFO - logger - info - Brain simulation initialized
+2025-10-05 23:26:13,962 - UnifiedAISystem - INFO - logger - info - Quantum processor initialized
+2025-10-05 23:26:13,966 - UnifiedAISystem - INFO - logger - info - Neural network initialized
+2025-10-05 23:26:13,966 - UnifiedAISystem - INFO - logger - info - Intelligent agent initialized
+2025-10-05 23:26:13,966 - UnifiedAISystem - INFO - logger - info - System coordinator initialized
+2025-10-05 23:26:13,966 - UnifiedAISystem - INFO - logger - info - Unified AI System fully initialized
+2025-10-05 23:26:13,966 - UnifiedAISystem - INFO - logger - info - Processing input with task type: general
+2025-10-05 23:26:13,967 - UnifiedAISystem - INFO - logger - info - Routing to systems: ['brain', 'neural', 'agent']
+2025-10-05 23:26:14,081 - UnifiedAISystem - DEBUG - logger - debug - Brain processing complete
+2025-10-05 23:26:14,082 - UnifiedAISystem - DEBUG - logger - debug - Neural processing complete
+2025-10-05 23:26:14,082 - UnifiedAISystem - DEBUG - logger - debug - Agent processing complete
+2025-10-05 23:26:14,083 - UnifiedAISystem - INFO - logger - info - Processing complete
+2025-10-05 23:26:14,089 - UnifiedAISystem - INFO - logger - info - Initializing subsystems...
+2025-10-05 23:26:14,388 - UnifiedAISystem - INFO - logger - info - Brain simulation initialized
+2025-10-05 23:26:14,388 - UnifiedAISystem - INFO - logger - info - Quantum processor initialized
+2025-10-05 23:26:14,388 - UnifiedAISystem - INFO - logger - info - Neural network initialized
+2025-10-05 23:26:14,388 - UnifiedAISystem - INFO - logger - info - Intelligent agent initialized
+2025-10-05 23:26:14,389 - UnifiedAISystem - INFO - logger - info - System coordinator initialized
+2025-10-05 23:26:14,389 - UnifiedAISystem - INFO - logger - info - Unified AI System fully initialized
+2025-10-05 23:26:14,389 - UnifiedAISystem - INFO - logger - info - Processing input with task type: general
+2025-10-05 23:26:14,389 - UnifiedAISystem - INFO - logger - info - Routing to systems: ['brain', 'neural', 'agent']
+2025-10-05 23:26:14,501 - UnifiedAISystem - DEBUG - logger - debug - Brain processing complete
+2025-10-05 23:26:14,502 - UnifiedAISystem - DEBUG - logger - debug - Neural processing complete
+2025-10-05 23:26:14,506 - UnifiedAISystem - DEBUG - logger - debug - Agent processing complete
+2025-10-05 23:26:14,507 - UnifiedAISystem - INFO - logger - info - Processing complete

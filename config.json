@@ -1,0 +1,26 @@
+{
+  "bot_name": "Nazanin v1",
+  "version": "1.0.0",
+  "brain_simulation": {
+    "enabled": true,
+    "neuron_count": 1000,
+    "learning_rate": 0.01,
+    "memory_capacity": 10000
+  },
+  "quantum": {
+    "enabled": true,
+    "qubit_count": 8,
+    "simulation_shots": 1024
+  },
+  "neural_network": {
+    "enabled": true,
+    "hidden_layers": [10, 64, 32, 10],
+    "activation": "relu",
+    "optimizer": "adam"
+  },
+  "agent": {
+    "enabled": true,
+    "max_iterations": 100,
+    "exploration_rate": 0.1
+  }
+}
