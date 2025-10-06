@@ -1,0 +1,155 @@
+{
+  "telegram": {
+    "bot_token": "",
+    "api_id": "",
+    "api_hash": "",
+    "phone_number": "",
+    "session_name": "nazanin_user",
+    "channels": {
+      "report": "",
+      "storage": "",
+      "backup": "",
+      "news_archive": "",
+      "media_storage": ""
+    },
+    "groups": {
+      "admin": "",
+      "testing": "",
+      "users": ""
+    },
+    "admin_user_id": "",
+    "settings": {
+      "auto_read": true,
+      "online_status": true,
+      "save_messages": true,
+      "forward_to_saved": false,
+      "max_file_size_mb": 20
+    }
+  },
+  
+  "twitter": {
+    "api_key": "",
+    "api_secret": "",
+    "access_token": "",
+    "access_secret": "",
+    "bearer_token": ""
+  },
+  
+  "google_sheets": {
+    "credentials_file": "credentials.json",
+    "spreadsheets": {
+      "bot_configuration": "",
+      "ai_data": "",
+      "telegram_data": "",
+      "users_database": "",
+      "content_management": "",
+      "news_channels": "",
+      "analytics_performance": "",
+      "tasks_automation": "",
+      "cloud_storage": "",
+      "security_logs": ""
+    },
+    "cache_duration": 300,
+    "auto_backup": true,
+    "backup_interval": 86400
+  },
+  
+  "ai_apis": {
+    "fallback_enabled": true,
+    "gemini": {
+      "keys": [],
+      "model": "gemini-pro",
+      "temperature": 0.7,
+      "max_tokens": 2048
+    },
+    "openai": {
+      "keys": [],
+      "model": "gpt-4",
+      "temperature": 0.7,
+      "max_tokens": 2048
+    },
+    "claude": {
+      "keys": [],
+      "model": "claude-3-sonnet-20240229",
+      "temperature": 0.7,
+      "max_tokens": 2048
+    },
+    "deepseek": {
+      "keys": [],
+      "model": "deepseek-chat",
+      "temperature": 0.7,
+      "max_tokens": 2048
+    },
+    "groq": {
+      "keys": [],
+      "model": "mixtral-8x7b-32768",
+      "temperature": 0.7,
+      "max_tokens": 2048
+    },
+    "together": {
+      "keys": [],
+      "model": "mistralai/Mixtral-8x7B-Instruct-v0.1",
+      "temperature": 0.7,
+      "max_tokens": 2048
+    }
+  },
+  
+  "brain_simulation": {
+    "enabled": true,
+    "emotion_update_interval": 300,
+    "cognition_depth": 5,
+    "memory_capacity": 10000,
+    "decision_threshold": 0.7
+  },
+  
+  "quantum_agent": {
+    "enabled": true,
+    "quantum_states": 64,
+    "entanglement_enabled": true,
+    "superposition_layers": 3
+  },
+  
+  "neural_agent": {
+    "enabled": true,
+    "hidden_layers": [512, 256, 128],
+    "activation": "relu",
+    "learning_rate": 0.001,
+    "auto_train": true,
+    "training_schedule": "02:00"
+  },
+  
+  "security": {
+    "encryption_enabled": true,
+    "rate_limiting": {
+      "enabled": true,
+      "max_requests_per_minute": 60,
+      "max_requests_per_hour": 1000
+    },
+    "ip_whitelist": [],
+    "ip_blacklist": [],
+    "two_factor_auth": false,
+    "session_timeout": 3600,
+    "log_all_actions": true,
+    "alert_on_suspicious": true,
+    "admin_notifications": true
+  },
+  
+  "storage": {
+    "telegram_storage_enabled": true,
+    "local_cache_enabled": true,
+    "cloud_backup_enabled": false,
+    "max_cache_size_mb": 500,
+    "auto_cleanup": true,
+    "cleanup_interval": 604800
+  },
+  
+  "monitoring": {
+    "enabled": true,
+    "health_check_interval": 300,
+    "alert_email": "",
+    "alert_telegram": true,
+    "log_level": "INFO",
+    "log_rotation": true,
+    "max_log_size_mb": 100
+  }
+}
