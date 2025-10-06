@@ -5,5 +5,6 @@ Platform Systems
 
 from .twitter_system import TwitterSystem
 from .telegram_system import TelegramSystem
+from .telegram_system_v2 import TelegramSystemV2
 
-__all__ = ['TwitterSystem', 'TelegramSystem']
+__all__ = ['TwitterSystem', 'TelegramSystem', 'TelegramSystemV2']
