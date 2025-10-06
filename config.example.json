@@ -1,0 +1,38 @@
+{
+  "telegram": {
+    "bot_token": "YOUR_BOT_TOKEN_HERE",
+    "api_id": "YOUR_API_ID_HERE",
+    "api_hash": "YOUR_API_HASH_HERE",
+    "report_channel_id": "YOUR_REPORT_CHANNEL_ID",
+    "admin_user_id": "YOUR_USER_ID"
+  },
+  "twitter": {
+    "api_key": "YOUR_TWITTER_API_KEY",
+    "api_secret": "YOUR_TWITTER_API_SECRET",
+    "access_token": "YOUR_ACCESS_TOKEN",
+    "access_secret": "YOUR_ACCESS_SECRET",
+    "bearer_token": "YOUR_BEARER_TOKEN"
+  },
+  "google_sheets": {
+    "credentials_file": "credentials.json",
+    "master_spreadsheet_id": "YOUR_SPREADSHEET_ID_HERE"
+  },
+  "brain_simulation": {
+    "enabled": true,
+    "emotion_update_interval": 300,
+    "cognition_depth": 5,
+    "memory_capacity": 10000
+  },
+  "quantum_agent": {
+    "enabled": true,
+    "quantum_states": 64,
+    "entanglement_enabled": true,
+    "superposition_layers": 3
+  },
+  "neural_agent": {
+    "enabled": true,
+    "hidden_layers": [512, 256, 128],
+    "activation": "relu",
+    "learning_rate": 0.001
+  }
+}
