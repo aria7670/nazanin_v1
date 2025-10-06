@@ -1,0 +1,24 @@
+# Include important files in package distribution
+
+include README.md
+include LICENSE
+include STRUCTURE.md
+include requirements.txt
+include setup.py
+
+# Include config examples
+include config/config.example.json
+
+# Include all documentation
+recursive-include docs *.md
+
+# Include tests
+recursive-include tests *.py
+
+# Exclude unnecessary files
+global-exclude __pycache__
+global-exclude *.py[co]
+global-exclude .DS_Store
+global-exclude *.so
+global-exclude .git*
+exclude nazanin_complete.zip

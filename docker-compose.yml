@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  nazanin:
+    build: .
+    container_name: nazanin-ai-bot
+    restart: unless-stopped
+    
+    environment:
+      - PYTHONUNBUFFERED=1
+      - LOG_LEVEL=INFO
+    
+    volumes:
+      # Config
+      - ./config:/app/config:ro
+      
+      # Logs
+      - ./logs:/app/logs
+      
+      # Data persistence
+      - ./data:/app/data
+      
+      # Google credentials
+      - ./credentials.json:/app/credentials.json:ro
+    
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 2G
+        reservations:
+          cpus: '1'
+          memory: 1G
+    
+    # Health check
+    healthcheck:
+      test: ["CMD", "python3", "-c", "import sys; sys.exit(0)"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    
+    # Network
+    networks:
+      - nazanin-network
+
+networks:
+  nazanin-network:
+    driver: bridge

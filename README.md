@@ -105,27 +105,50 @@ nazanin/
 
 ## ⚡ نصب و اجرا
 
-### نصب:
+### 🎯 نصب سریع (پیشنهادی):
 ```bash
 # کلون کردن
 git clone https://github.com/aria7670/nazanin_v1.git
 cd nazanin_v1
+
+# اجرای اسکریپت نصب
+bash run.sh
+```
+
+### 🔧 نصب دستی:
+```bash
+# ساخت virtual environment
+python3 -m venv venv
+source venv/bin/activate  # Linux/Mac
+# یا: venv\Scripts\activate  # Windows
 
 # نصب وابستگی‌ها
 pip install -r requirements.txt
 
 # تنظیم config
 cp config/config.example.json config/config.json
-# ویرایش config/config.json
+nano config/config.json  # ویرایش با API keys
 ```
 
-### اجرا:
+### 🐳 Docker:
+```bash
+# Build
+docker build -t nazanin-ai-bot .
+
+# Run
+docker-compose up -d
+```
+
+### ▶️ اجرا:
 ```bash
 # نسخه ساده
 python main.py
 
-# نسخه پیشرفته (با تمام ویژگی‌ها)
+# نسخه پیشرفته (توصیه می‌شه)
 python main_advanced.py
+
+# تست
+python tests/test_basic.py
 
 # Demo
 python tests/demo_advanced.py
@@ -151,11 +174,19 @@ python tests/demo_advanced.py
 
 ## 📚 مستندات
 
-- 🚀 **[START_HERE.md](docs/START_HERE.md)** - شروع از اینجا
+### شروع کار:
+- 🚀 **[START_HERE.md](docs/START_HERE.md)** - راهنمای شروع
 - ⚡ **[QUICKSTART.md](docs/QUICKSTART.md)** - شروع سریع (5 دقیقه)
-- 🔧 **[INSTALLATION.md](docs/INSTALLATION.md)** - راهنمای نصب کامل
+- 🔧 **[INSTALLATION.md](docs/INSTALLATION.md)** - نصب کامل
+
+### معماری و ویژگی‌ها:
 - 🏗️ **[ARCHITECTURE.md](docs/ARCHITECTURE.md)** - معماری سیستم
+- 📦 **[MODULE_STRUCTURE.md](docs/MODULE_STRUCTURE.md)** - ساختار ماژولار
 - 🆕 **[ADVANCED_FEATURES.md](docs/ADVANCED_FEATURES.md)** - ویژگی‌های پیشرفته
+
+### توسعه و Deploy:
+- 🤝 **[CONTRIBUTING.md](CONTRIBUTING.md)** - راهنمای مشارکت
+- 🚀 **[DEPLOYMENT.md](docs/DEPLOYMENT.md)** - راهنمای Deploy
 - 📋 **[COMPLETE_SUMMARY.md](docs/COMPLETE_SUMMARY.md)** - خلاصه کامل
 
 ---
@@ -206,16 +237,33 @@ print(result['dominant_emotion'])
 
 ## 🤝 مشارکت
 
-این پروژه open source است. مشارکت شما خوشحال می‌شویم!
+این پروژه open source است و از مشارکت شما استقبال می‌کنیم! 🎉
+
+### چطور مشارکت کنم؟
+
+1. 🍴 Fork کن این repo رو
+2. 🌿 Branch جدید بساز (`git checkout -b feature/AmazingFeature`)
+3. ✍️ تغییراتت رو commit کن (`git commit -m 'Add some AmazingFeature'`)
+4. 📤 Push کن (`git push origin feature/AmazingFeature`)
+5. 🎯 یک Pull Request باز کن
+
+راهنمای کامل: **[CONTRIBUTING.md](CONTRIBUTING.md)**
 
 ---
 
-## 📞 پشتیبانی
+## 📞 پشتیبانی و ارتباط
 
-برای سوالات و مشکلات:
-- 📖 ابتدا [docs/](docs/) را بخوانید
-- 🐛 Issue در GitHub باز کنید
-- 💬 در Discussions بپرسید
+### سوالات و مشکلات:
+- 📖 ابتدا [مستندات](docs/) را بخوانید
+- 🐛 [Issue](https://github.com/aria7670/nazanin_v1/issues) در GitHub باز کنید
+- 💬 در [Discussions](https://github.com/aria7670/nazanin_v1/discussions) بپرسید
+- 📧 Email: aria7670@gmail.com
+
+### لینک‌های مفید:
+- 🔗 [Repository](https://github.com/aria7670/nazanin_v1)
+- 📝 [Issues](https://github.com/aria7670/nazanin_v1/issues)
+- 🗣️ [Discussions](https://github.com/aria7670/nazanin_v1/discussions)
+- 📦 [Releases](https://github.com/aria7670/nazanin_v1/releases)
 
 ---
 

@@ -4,6 +4,10 @@ Quick verification that all modules can be imported
 """
 
 import sys
+import os
+
+# Add parent directory to Python path for imports
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 def test_imports():
     """Test that all modules can be imported"""
@@ -25,10 +29,26 @@ def test_imports():
     
     for module_name, class_name in modules_to_test:
         try:
-            module = __import__(module_name)
-            cls = getattr(module, class_name)
-            results.append((module_name, '✅ OK'))
-            print(f"✅ {module_name}.{class_name}")
+            # Use importlib for better import handling
+            import importlib
+            parts = module_name.split('.')
+            module = importlib.import_module(module_name)
+            
+            # Navigate to the class
+            obj = module
+            for part in parts[1:]:
+                if hasattr(obj, part):
+                    obj = getattr(obj, part)
+            
+            if hasattr(obj, class_name):
+                cls = getattr(obj, class_name)
+                results.append((module_name, '✅ OK'))
+                print(f"✅ {module_name}.{class_name}")
+            else:
+                # Try to get it from module directly
+                cls = getattr(module, class_name)
+                results.append((module_name, '✅ OK'))
+                print(f"✅ {module_name}.{class_name}")
         except Exception as e:
             results.append((module_name, f'❌ {str(e)}'))
             print(f"❌ {module_name}: {str(e)}")
@@ -55,8 +75,25 @@ def test_config():
     
     try:
         import json
-        with open('config.json', 'r') as f:
-            config = json.load(f)
+        import os
+        
+        # Check multiple possible config locations
+        config_paths = ['config/config.json', 'config.json']
+        config_data = None
+        config_path_used = None
+        
+        for path in config_paths:
+            if os.path.exists(path):
+                with open(path, 'r') as f:
+                    config_data = json.load(f)
+                config_path_used = path
+                break
+        
+        if config_data is None:
+            raise FileNotFoundError("config.json not found")
+        
+        config = config_data
+        print(f"✅ Config loaded from: {config_path_used}")
         
         required_keys = ['telegram', 'twitter', 'google_sheets', 
                         'brain_simulation', 'quantum_agent', 'neural_agent']
@@ -70,8 +107,8 @@ def test_config():
         return True
         
     except FileNotFoundError:
-        print("⚠️ config.json not found")
-        print("💡 Copy config.example.json to config.json")
+        print("⚠️ config.json not found in config/ or root")
+        print("💡 Copy config/config.example.json to config/config.json")
         return False
     except Exception as e:
         print(f"❌ Error reading config: {e}")
