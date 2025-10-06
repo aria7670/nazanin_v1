@@ -11,18 +11,14 @@ from datetime import datetime, timedelta
 from typing import Dict, Any
 
 # Core systems
-from sheets_manager import SheetsManager
-from api_manager import APIManager
-from agents import AgentOrchestrator
+from src.core import SheetsManager, APIManager
+from src.agents import AgentOrchestrator
 
 # Platform systems
-from twitter_system import TwitterSystem
-from telegram_system import TelegramSystem
+from src.platforms import TwitterSystem, TelegramSystem
 
 # Advanced AI systems
-from brain_simulation import BrainSimulation
-from quantum_agent import QuantumAgent
-from neural_agent import NeuralAgent
+from src.ai import BrainSimulation, QuantumAgent, NeuralAgent
 
 # Setup logging
 logging.basicConfig(

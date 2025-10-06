@@ -11,14 +11,14 @@ def test_imports():
     print("🧪 Testing module imports...\n")
     
     modules_to_test = [
-        ('sheets_manager', 'SheetsManager'),
-        ('api_manager', 'APIManager'),
-        ('agents', 'AgentOrchestrator'),
-        ('twitter_system', 'TwitterSystem'),
-        ('telegram_system', 'TelegramSystem'),
-        ('brain_simulation', 'BrainSimulation'),
-        ('quantum_agent', 'QuantumAgent'),
-        ('neural_agent', 'NeuralAgent'),
+        ('src.core.sheets_manager', 'SheetsManager'),
+        ('src.core.api_manager', 'APIManager'),
+        ('src.agents.agents', 'AgentOrchestrator'),
+        ('src.platforms.twitter_system', 'TwitterSystem'),
+        ('src.platforms.telegram_system', 'TelegramSystem'),
+        ('src.ai.brain_simulation', 'BrainSimulation'),
+        ('src.ai.quantum_agent', 'QuantumAgent'),
+        ('src.ai.neural_agent', 'NeuralAgent'),
     ]
     
     results = []

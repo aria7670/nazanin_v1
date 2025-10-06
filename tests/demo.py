@@ -9,9 +9,9 @@ import logging
 from datetime import datetime
 
 # Import all systems
-from brain_simulation import BrainSimulation
-from quantum_agent import QuantumAgent
-from neural_agent import NeuralAgent
+from src.ai.brain_simulation import BrainSimulation
+from src.ai.quantum_agent import QuantumAgent
+from src.ai.neural_agent import NeuralAgent
 
 # Setup logging
 logging.basicConfig(

@@ -11,26 +11,24 @@ from datetime import datetime
 from typing import Dict, Any
 
 # سیستم‌های اصلی
-from sheets_manager import SheetsManager
-from api_manager import APIManager
-from agents import AgentOrchestrator
+from src.core import SheetsManager, APIManager
+from src.agents import AgentOrchestrator
 
 # پلتفرم‌ها
-from twitter_system import TwitterSystem
-from telegram_system import TelegramSystem
+from src.platforms import TwitterSystem, TelegramSystem
 
 # سیستم‌های AI پیشرفته
-from brain_simulation import BrainSimulation
-from quantum_agent import QuantumAgent
-from neural_agent import NeuralAgent
+from src.ai import BrainSimulation, QuantumAgent, NeuralAgent
 
 # سیستم‌های جدید
-from message_classifier import MessageClassifier, PromptBuilder
-from behavioral_learning import PersonalityAdapter, HumanizationEngine
-from specialized_agents import SpecializedAgentOrchestrator
-from advanced_algorithms import AlgorithmOrchestrator
-from template_system import TemplateLibrary, PatternLibrary, ContentGenerator
-from telegram_storage import TelegramStorage, DataBackupSystem, CacheSystem
+from src.utils import (
+    MessageClassifier, PromptBuilder,
+    PersonalityAdapter, HumanizationEngine,
+    AlgorithmOrchestrator,
+    TemplateLibrary, PatternLibrary, ContentGenerator
+)
+from src.agents import SpecializedAgentOrchestrator
+from src.storage import TelegramStorage, DataBackupSystem, CacheSystem
 
 # Setup logging
 logging.basicConfig(

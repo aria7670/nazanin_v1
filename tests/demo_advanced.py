@@ -8,16 +8,16 @@ import logging
 from datetime import datetime
 
 # Import سیستم‌های جدید
-from message_classifier import MessageClassifier, PromptBuilder
-from behavioral_learning import (
+from src.utils.message_classifier import MessageClassifier, PromptBuilder
+from src.utils.behavioral_learning import (
     UserBehaviorTracker,
     PersonalityAdapter,
     EmotionalIntelligence,
     HumanizationEngine
 )
-from specialized_agents import SpecializedAgentOrchestrator
-from advanced_algorithms import AlgorithmOrchestrator
-from template_system import ContentGenerator
+from src.agents.specialized_agents import SpecializedAgentOrchestrator
+from src.utils.advanced_algorithms import AlgorithmOrchestrator
+from src.utils.template_system import ContentGenerator
 
 logging.basicConfig(level=logging.INFO, format='%(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
