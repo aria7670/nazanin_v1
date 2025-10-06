@@ -93,6 +93,15 @@ class APIManagerV2:
                 ai_config['deepseek'].get('model', 'deepseek-chat'),
                 priority=6
             )
+        
+        # ChatGLM (Zhipu AI) - رایگان و قدرتمند
+        if 'glm' in ai_config and ai_config['glm'].get('keys'):
+            self.providers['glm'] = AIProviderV2(
+                'glm',
+                ai_config['glm']['keys'],
+                ai_config['glm'].get('model', 'glm-4'),
+                priority=8  # اولویت بالا (رایگان و خوب)
+            )
     
     async def reload_keys_from_sheets(self):
         """بارگذاری مجدد کلیدها از Google Sheets"""
@@ -291,6 +300,8 @@ class AIProviderV2:
             return await self._call_claude(api_key, prompt)
         elif self.name == 'deepseek':
             return await self._call_deepseek(api_key, prompt)
+        elif self.name == 'glm':
+            return await self._call_glm(api_key, prompt)
         else:
             raise NotImplementedError(f"Provider {self.name} not implemented")
     
@@ -401,6 +412,52 @@ class AIProviderV2:
                     return data['choices'][0]['message']['content']
                 else:
                     raise Exception(f"DeepSeek error: {resp.status}")
+    
+    async def _call_glm(self, api_key: str, prompt: str) -> str:
+        """ChatGLM (Zhipu AI) API"""
+        import aiohttp
+        import time
+        import jwt
+        
+        # GLM uses JWT authentication
+        def generate_token(apikey: str, exp_seconds: int = 3600):
+            try:
+                id, secret = apikey.split(".")
+            except Exception as e:
+                raise Exception("invalid apikey", e)
+            
+            payload = {
+                "api_key": id,
+                "exp": int(round(time.time() * 1000)) + exp_seconds * 1000,
+                "timestamp": int(round(time.time() * 1000)),
+            }
+            
+            return jwt.encode(
+                payload,
+                secret,
+                algorithm="HS256",
+                headers={"alg": "HS256", "sign_type": "SIGN"},
+            )
+        
+        token = generate_token(api_key)
+        
+        async with aiohttp.ClientSession() as session:
+            async with session.post(
+                'https://open.bigmodel.cn/api/paas/v4/chat/completions',
+                json={
+                    'model': self.model,
+                    'messages': [{"role": "user", "content": prompt}],
+                    'temperature': 0.7,
+                    'top_p': 0.7,
+                    'stream': False
+                },
+                headers={'Authorization': f'Bearer {token}'}
+            ) as resp:
+                if resp.status == 200:
+                    data = await resp.json()
+                    return data['choices'][0]['message']['content']
+                else:
+                    raise Exception(f"GLM error: {resp.status}")
     
     def get_stats(self) -> Dict:
         """دریافت آمار کلی"""

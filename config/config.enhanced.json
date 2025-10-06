@@ -91,6 +91,13 @@
       "model": "mistralai/Mixtral-8x7B-Instruct-v0.1",
       "temperature": 0.7,
       "max_tokens": 2048
+    },
+    "glm": {
+      "keys": [],
+      "model": "glm-4",
+      "temperature": 0.7,
+      "max_tokens": 2048,
+      "notes": "ChatGLM - Chinese AI, Free, Powerful"
     }
   },
   
