@@ -1,0 +1,28 @@
+# فایل‌های قدیمی برای حذف:
+
+## Main files قدیمی:
+- main.py
+- main_advanced.py  
+- main_bio.py
+- main_complete.py
+- nazanin_main.py
+
+## Run files قدیمی:
+- run.py (v3)
+- run_v4.py (v4)
+
+## Demo/Test files قدیمی که نیاز نیست:
+- demo_*.py
+- test_*.py (غیر از test_structure.py)
+
+## نسخه‌های قدیمی Markdown:
+- FINAL_REVIEW.md (v2)
+- FINAL_SUMMARY_V2.md
+- FINAL_SUMMARY_V2.1.md
+- PROJECT_STATUS.md
+
+نگه می‌داریم:
+✅ run_v5.py - اجرای نسخه 5
+✅ initialize_sheets.py - راه‌اندازی Sheets
+✅ test_structure.py - تست ساختار
+✅ تمام فایل‌های مستندات v5
