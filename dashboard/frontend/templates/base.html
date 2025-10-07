@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Nazanin Dashboard{% endblock %}</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+    <link rel="stylesheet" href="/static/css/components.css">
+    <link rel="stylesheet" href="/static/css/themes.css">
+    
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <h2>Loading Nazanin Dashboard...</h2>
+            <p>Initializing systems...</p>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <i class="fas fa-brain"></i>
+                <span>Nazanin</span>
+            </div>
+            <button class="sidebar-toggle" id="sidebar-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <div class="sidebar-user">
+            <div class="user-avatar">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="user-info">
+                <h4>Admin</h4>
+                <span class="user-status online">Online</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="/" class="nav-item {% if request.url.path == '/' %}active{% endif %}">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+                <span class="badge">Live</span>
+            </a>
+            
+            <a href="/sheets" class="nav-item {% if 'sheets' in request.url.path %}active{% endif %}">
+                <i class="fas fa-table"></i>
+                <span>Google Sheets</span>
+                <span class="count">15</span>
+            </a>
+            
+            <a href="/config" class="nav-item {% if 'config' in request.url.path %}active{% endif %}">
+                <i class="fas fa-cog"></i>
+                <span>Configuration</span>
+            </a>
+            
+            <a href="/telegram" class="nav-item {% if 'telegram' in request.url.path %}active{% endif %}">
+                <i class="fab fa-telegram"></i>
+                <span>Telegram</span>
+                <span class="badge green">Active</span>
+            </a>
+            
+            <a href="/content" class="nav-item {% if 'content' in request.url.path %}active{% endif %}">
+                <i class="fas fa-file-alt"></i>
+                <span>Content</span>
+            </a>
+            
+            <a href="/youtube" class="nav-item {% if 'youtube' in request.url.path %}active{% endif %}">
+                <i class="fab fa-youtube"></i>
+                <span>YouTube</span>
+            </a>
+            
+            <a href="/analytics" class="nav-item {% if 'analytics' in request.url.path %}active{% endif %}">
+                <i class="fas fa-chart-line"></i>
+                <span>Analytics</span>
+            </a>
+            
+            <a href="/personality" class="nav-item {% if 'personality' in request.url.path %}active{% endif %}">
+                <i class="fas fa-user-astronaut"></i>
+                <span>Personality</span>
+            </a>
+            
+            <div class="nav-section">AI Systems</div>
+            
+            <a href="/brain" class="nav-item">
+                <i class="fas fa-brain"></i>
+                <span>Deep Brain</span>
+            </a>
+            
+            <a href="/modules" class="nav-item">
+                <i class="fas fa-cube"></i>
+                <span>Modules</span>
+                <span class="count">36</span>
+            </a>
+            
+            <a href="/agents" class="nav-item">
+                <i class="fas fa-robot"></i>
+                <span>Agents</span>
+                <span class="count">36</span>
+            </a>
+            
+            <a href="/algorithms" class="nav-item">
+                <i class="fas fa-project-diagram"></i>
+                <span>Algorithms</span>
+                <span class="count">50</span>
+            </a>
+            
+            <div class="nav-section">Management</div>
+            
+            <a href="/tasks" class="nav-item {% if 'tasks' in request.url.path %}active{% endif %}">
+                <i class="fas fa-tasks"></i>
+                <span>Tasks</span>
+            </a>
+            
+            <a href="/logs" class="nav-item {% if 'logs' in request.url.path %}active{% endif %}">
+                <i class="fas fa-terminal"></i>
+                <span>Logs</span>
+            </a>
+            
+            <a href="/security" class="nav-item">
+                <i class="fas fa-shield-alt"></i>
+                <span>Security</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <button class="btn btn-sm btn-danger" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i>
+                Logout
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <button class="btn-icon" id="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 class="page-title">{% block page_title %}Dashboard{% endblock %}</h1>
+            </div>
+
+            <div class="header-center">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search anything..." id="global-search">
+                </div>
+            </div>
+
+            <div class="header-right">
+                <!-- System Status -->
+                <div class="system-status" id="system-status">
+                    <div class="status-indicator"></div>
+                    <span>Initializing...</span>
+                </div>
+
+                <!-- Notifications -->
+                <div class="notification-btn" id="notification-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge">3</span>
+                </div>
+
+                <!-- Theme Toggle -->
+                <button class="btn-icon theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+
+                <!-- Fullscreen -->
+                <button class="btn-icon" id="fullscreen-btn">
+                    <i class="fas fa-expand"></i>
+                </button>
+
+                <!-- Settings -->
+                <button class="btn-icon" onclick="window.location.href='/settings'">
+                    <i class="fas fa-cog"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Page Content -->
+        <div class="page-content">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <!-- Notifications Panel -->
+    <div class="notifications-panel" id="notifications-panel">
+        <div class="panel-header">
+            <h3>Notifications</h3>
+            <button class="btn-close" onclick="closeNotifications()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="panel-content">
+            <div class="notification-item unread">
+                <i class="fas fa-check-circle text-success"></i>
+                <div>
+                    <h4>System Initialized</h4>
+                    <p>Nazanin v5.0 is ready</p>
+                    <span class="time">2 minutes ago</span>
+                </div>
+            </div>
+            <div class="notification-item unread">
+                <i class="fas fa-info-circle text-info"></i>
+                <div>
+                    <h4>New YouTube Video Idea</h4>
+                    <p>10 ideas generated for your channel</p>
+                    <span class="time">5 minutes ago</span>
+                </div>
+            </div>
+            <div class="notification-item">
+                <i class="fas fa-exclamation-triangle text-warning"></i>
+                <div>
+                    <h4>API Rate Limit</h4>
+                    <p>Gemini API approaching limit</p>
+                    <span class="time">1 hour ago</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WebSocket Connection Indicator -->
+    <div class="ws-indicator" id="ws-indicator">
+        <i class="fas fa-circle"></i>
+        <span>Connecting...</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/static/js/config.js"></script>
+    <script src="/static/js/api.js"></script>
+    <script src="/static/js/websocket.js"></script>
+    <script src="/static/js/utils.js"></script>
+    <script src="/static/js/main.js"></script>
+    
+    {% block extra_js %}{% endblock %}
+
+    <script>
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeDashboard();
+        });
+    </script>
+</body>
+</html>
