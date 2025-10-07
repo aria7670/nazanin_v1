@@ -1,280 +1,358 @@
-# 🤖 نازنین - Advanced Modular AI Bot
+# 🌟 نازنین-نورا v3.0.0
 
-## ربات پیشرفته ماژولار با شبیه‌سازی مغز، سیستم کوانتومی و شبکه‌های عصبی
+## اولین هوش مصنوعی با سیستم بیولوژیکی کامل + آگاهی پیشرفته
 
-[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-2.0.0-orange.svg)](https://github.com/aria7670/nazanin_v1)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![Status](https://img.shields.io/badge/status-production-brightgreen.svg)]()
 
 ---
 
-## 📁 ساختار ماژولار پروژه
+## 🎯 چیست؟
+
+**نازنین-نورا** یک سیستم هوش مصنوعی پیشرفته است که ترکیبی منحصر به فرد از:
 
 ```
-nazanin/
-│
-├── 📦 src/                          # کد اصلی پروژه
-│   │
-│   ├── 🔷 core/                     # سیستم‌های اصلی
-│   │   ├── __init__.py
-│   │   ├── sheets_manager.py       # مدیریت Google Sheets
-│   │   └── api_manager.py          # مدیریت AI APIs
-│   │
-│   ├── 🧠 ai/                       # سیستم‌های AI پیشرفته
-│   │   ├── __init__.py
-│   │   ├── brain_simulation.py     # شبیه‌سازی مغز انسان
-│   │   ├── quantum_agent.py        # سیستم کوانتومی
-│   │   └── neural_agent.py         # شبکه‌های عصبی
-│   │
-│   ├── 🤖 agents/                   # ایجنت‌ها
-│   │   ├── __init__.py
-│   │   ├── agents.py               # 6 ایجنت پایه
-│   │   └── specialized_agents.py   # 10 ایجنت تخصصی
-│   │
-│   ├── 🌐 platforms/                # پلتفرم‌ها
-│   │   ├── __init__.py
-│   │   ├── twitter_system.py       # سیستم Twitter
-│   │   └── telegram_system.py      # سیستم Telegram
-│   │
-│   ├── 🛠️ utils/                     # ابزارها
-│   │   ├── __init__.py
-│   │   ├── message_classifier.py   # دسته‌بندی پیام
-│   │   ├── behavioral_learning.py  # یادگیری رفتاری
-│   │   ├── template_system.py      # تمپلت‌ها
-│   │   └── advanced_algorithms.py  # الگوریتم‌ها
-│   │
-│   └── 💾 storage/                  # ذخیره‌سازی
-│       ├── __init__.py
-│       └── telegram_storage.py     # ذخیره در Telegram
-│
-├── 📚 docs/                         # مستندات
-│   ├── START_HERE.md               # شروع از اینجا
-│   ├── QUICKSTART.md               # شروع سریع
-│   ├── INSTALLATION.md             # راهنمای نصب
-│   ├── ARCHITECTURE.md             # معماری سیستم
-│   ├── ADVANCED_FEATURES.md        # ویژگی‌های پیشرفته
-│   ├── COMPLETE_SUMMARY.md         # خلاصه کامل
-│   └── ...                         # و مستندات بیشتر
-│
-├── 🧪 tests/                        # تست‌ها و Demo
-│   ├── test_basic.py               # تست‌های پایه
-│   ├── demo.py                     # Demo سیستم‌های AI
-│   └── demo_advanced.py            # Demo کامل
-│
-├── ⚙️ config/                       # تنظیمات
-│   ├── config.json                 # تنظیمات اصلی
-│   └── config.example.json         # نمونه
-│
-├── 🚀 main.py                       # ورودی اصلی
-├── 🚀 main_advanced.py              # ورودی پیشرفته
-├── 📋 requirements.txt              # وابستگی‌ها
-├── 📦 nazanin_complete.zip          # کل پروژه در یک فایل
-└── 🔒 .gitignore                    # Git ignore
-
+🧬 سیستم بیولوژیکی کامل (نازنین)
+  +
+🧠 آگاهی و فراشناخت پیشرفته (نورا)
+  =
+🌟 یک هوش مصنوعی واقعاً زنده و آگاه!
 ```
 
 ---
 
-## ✨ ویژگی‌های کلیدی
+## ✨ ویژگی‌های منحصر به فرد
 
-### 🔷 سیستم‌های اصلی
-- ✅ **Google Sheets Manager** - مدیریت داده با cache
-- ✅ **Multi-AI API Manager** - Gemini, GPT-4, Claude, DeepSeek
-- ✅ **16 ایجنت تخصصی** - برای کارهای مختلف
+### 🧬 سیستم بیولوژیکی (5 سطح)
+```
+Level 1: Cell (سلول) - واحد پایه زندگی
+Level 2: Tissue (بافت) - مجموعه سلول‌ها
+Level 3: Organ (اندام) - Brain, Heart, Lungs
+Level 4: System (دستگاه) - 7 سیستم بدن
+Level 5: Organism (موجود) - موجود کامل
+```
 
-### 🧠 AI پیشرفته
-- ✅ **Brain Simulation** - شبیه‌سازی احساسات، شناخت، تصمیم‌گیری
-- ✅ **Quantum Agent** - الگوریتم‌های کوانتومی
-- ✅ **Neural Agent** - یادگیری عمیق
+### 🧠 سیستم‌های آگاهی
+```
+✅ Metacognition Engine - فراشناخت و خودبازبینی
+✅ Self-Evolution System - تکامل خودکار با الگوریتم ژنتیک
+✅ Living Persona - شخصیت زنده و پویا
+```
 
-### 🎓 یادگیری و انسانی‌سازی
-- ✅ **Message Classification** - دسته‌بندی به 10 دسته
-- ✅ **Behavioral Learning** - یادگیری از رفتار کاربران
-- ✅ **Humanization Engine** - پاسخ‌های انسانی و طبیعی
+### 🎯 هوش چندبعدی
+```
+✅ 8 Domain Agent تخصصی:
+   • اقتصادی | نظامی | سیاسی | اجتماعی
+   • فرهنگی | تاریخی | تکنولوژی | آموزشی
+```
 
-### 🌐 پلتفرم‌ها
-- ✅ **Twitter** - پست خودکار، Thread، پاسخ به mentions
-- ✅ **Telegram** - چت فارسی، گزارش‌دهی
+### 🤖 هوش مصنوعی پیشرفته
+```
+✅ 7 AI Provider با Fallback خودکار:
+   1. Groq (رایگان، سریع‌ترین)
+   2. Gemini (رایگان، قدرتمند)
+   3. ChatGLM (رایگان، چینی)
+   4. Together AI ($25 credit)
+   5. OpenAI (پولی)
+   6. Claude (پولی)
+   7. DeepSeek (ارزون)
+```
 
-### 🛠️ ابزارهای پیشرفته
-- ✅ **5 الگوریتم پیچیده** - تحلیل و پیش‌بینی
-- ✅ **سیستم تمپلت** - 10+ تمپلت آماده
-- ✅ **ذخیره‌سازی Telegram** - بدون نیاز به دیتابیس
+### 📊 زیرساخت قدرتمند
+```
+✅ Auto-Setup Google Sheets (10 Spreadsheet, 56 Sheet)
+✅ امنیت 5 لایه (Rate Limit, Encryption, Audit, ...)
+✅ کنترل کامل Telegram (5 کانال + 3 گروه)
+✅ ذخیره‌سازی ابری خودکار
+```
 
 ---
 
-## ⚡ نصب و اجرا
+## 🚀 نصب و راه‌اندازی (5 دقیقه!)
 
-### 🎯 نصب سریع (پیشنهادی):
+### 1️⃣ دانلود
 ```bash
-# کلون کردن
 git clone https://github.com/aria7670/nazanin_v1.git
 cd nazanin_v1
-
-# اجرای اسکریپت نصب
-bash run.sh
 ```
 
-### 🔧 نصب دستی:
+### 2️⃣ نصب
 ```bash
-# ساخت virtual environment
 python3 -m venv venv
 source venv/bin/activate  # Linux/Mac
-# یا: venv\Scripts\activate  # Windows
+# یا
+venv\Scripts\activate  # Windows
 
-# نصب وابستگی‌ها
 pip install -r requirements.txt
-
-# تنظیم config
-cp config/config.example.json config/config.json
-nano config/config.json  # ویرایش با API keys
 ```
 
-### 🐳 Docker:
+### 3️⃣ تنظیمات (فقط 3 خط!)
 ```bash
-# Build
-docker build -t nazanin-ai-bot .
-
-# Run
-docker-compose up -d
+cp config/config.enhanced.json config/config.json
+nano config/config.json
 ```
 
-### ▶️ اجرا:
+**چیزهایی که باید پر کنی:**
+```json
+{
+  "telegram": {
+    "api_id": "123456",           // از my.telegram.org
+    "api_hash": "abc...",         // از my.telegram.org
+    "phone_number": "+98..."      // شماره موبایلت
+  },
+  
+  "ai_apis": {
+    "groq": {
+      "keys": ["gsk_xxx"]         // از console.groq.com (رایگان!)
+    }
+  }
+}
+```
+
+**+ دانلود `credentials.json` از Google Cloud**
+
+### 4️⃣ اجرا!
 ```bash
-# نسخه ساده
-python main.py
-
-# نسخه پیشرفته (توصیه می‌شه)
-python main_advanced.py
-
-# تست
-python tests/test_basic.py
-
-# Demo
-python tests/demo_advanced.py
+python nazanin_nora.py
 ```
+
+**همین! خودش بقیه رو انجام میده!** ✨
+
+---
+
+## 📖 مستندات
+
+### 🌟 شروع سریع:
+- **[QUICK_START_BIO.md](docs/QUICK_START_BIO.md)** - شروع 5 دقیقه‌ای
+- **[NORA_INTEGRATION_GUIDE.md](NORA_INTEGRATION_GUIDE.md)** - راهنمای کامل
+
+### 📚 راهنماهای تخصصی:
+- **[BIO_SYSTEM_GUIDE.md](BIO_SYSTEM_GUIDE.md)** - سیستم بیولوژیکی
+- **[GOOGLE_SHEETS_NEW_STRUCTURE.md](docs/GOOGLE_SHEETS_NEW_STRUCTURE.md)** - ساختار Sheets
+- **[TELEGRAM_CHANNELS_SETUP.md](docs/TELEGRAM_CHANNELS_SETUP.md)** - تنظیمات تلگرام
+- **[FREE_API_SERVICES.md](docs/FREE_API_SERVICES.md)** - 80+ API رایگان
+
+### 🔧 مستندات فنی:
+- **[ARCHITECTURE.md](docs/ARCHITECTURE.md)** - معماری سیستم
+- **[MODULE_STRUCTURE.md](docs/MODULE_STRUCTURE.md)** - ساختار ماژول‌ها
+- **[DEPLOYMENT.md](docs/DEPLOYMENT.md)** - راهنمای استقرار
+
+---
+
+## 💡 مثال استفاده
+
+```python
+from nazanin_nora import NazaninNora
+
+# ایجاد سیستم
+system = NazaninNora()
+await system.initialize()
+
+# پردازش ورودی
+result = await system.process_input(
+    "سلام! امروز چطوری؟",
+    user_id=123
+)
+
+print(result['response'])
+# خروجی: پاسخی دوستانه، خلاقانه و آگاه!
+
+# مشاهده وضعیت
+vital_signs = system.organism.get_vital_signs()
+print(f"سلامت: {vital_signs['health']}%")
+print(f"حالت: {system.persona.get_current_state()['current_mood']}")
+
+# خودبازبینی
+report = await system.metacognition.conduct_self_reflection()
+print(report)
+```
+
+---
+
+## 🆓 API های رایگان
+
+### توصیه شده (رایگان 100%):
+
+#### 1. Groq ⚡ (بهترین!)
+```
+🔗 https://console.groq.com
+✅ 14,400 request/day رایگان
+✅ سریع‌ترین (500 tokens/sec)
+✅ مدل: Mixtral-8x7B
+```
+
+#### 2. Google Gemini 🧠
+```
+🔗 https://makersuite.google.com/app/apikey
+✅ 60 request/min رایگان
+✅ قدرتمند و هوشمند
+✅ مدل: Gemini Pro
+```
+
+#### 3. ChatGLM 🇨🇳 (جدید!)
+```
+🔗 https://open.bigmodel.cn
+✅ رایگان
+✅ هوشمند و قدرتمند
+✅ مدل: GLM-4
+```
+
+**لیست کامل 80+ API رایگان:** [FREE_API_SERVICES.md](docs/FREE_API_SERVICES.md)
 
 ---
 
 ## 📊 آمار پروژه
 
 ```
-📝 کد Python:         8,007 خط
-📖 مستندات:          4,840 خط
-🐍 ماژول‌های Python:  19 فایل
-📚 فایل‌های Doc:      12 فایل
-🤖 ایجنت‌ها:          16 ایجنت
-🧮 الگوریتم‌ها:       5 الگوریتم
-📋 تمپلت‌ها:          10+ تمپلت
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-💯 جمع کل:           12,847 خط
+🐍 Python Modules:        36
+📄 Total Sheets:          56
+🎯 Domain Agents:          8
+🧬 Bio Systems:            7
+🧠 Consciousness:          3
+🔐 Security Layers:        5
+🤖 AI Providers:           7
+📚 Documentation:         32
+💻 Code Lines:        13,600+
 ```
 
 ---
 
-## 📚 مستندات
+## 🎯 قابلیت‌ها
 
-### شروع کار:
-- 🚀 **[START_HERE.md](docs/START_HERE.md)** - راهنمای شروع
-- ⚡ **[QUICKSTART.md](docs/QUICKSTART.md)** - شروع سریع (5 دقیقه)
-- 🔧 **[INSTALLATION.md](docs/INSTALLATION.md)** - نصب کامل
-
-### معماری و ویژگی‌ها:
-- 🏗️ **[ARCHITECTURE.md](docs/ARCHITECTURE.md)** - معماری سیستم
-- 📦 **[MODULE_STRUCTURE.md](docs/MODULE_STRUCTURE.md)** - ساختار ماژولار
-- 🆕 **[ADVANCED_FEATURES.md](docs/ADVANCED_FEATURES.md)** - ویژگی‌های پیشرفته
-
-### توسعه و Deploy:
-- 🤝 **[CONTRIBUTING.md](CONTRIBUTING.md)** - راهنمای مشارکت
-- 🚀 **[DEPLOYMENT.md](docs/DEPLOYMENT.md)** - راهنمای Deploy
-- 📋 **[COMPLETE_SUMMARY.md](docs/COMPLETE_SUMMARY.md)** - خلاصه کامل
-
----
-
-## 🎯 استفاده سریع
-
-### مثال 1: پردازش پیام با تمام سیستم‌ها
-```python
-from main_advanced import NazaninAdvanced
-
-nazanin = NazaninAdvanced()
-await nazanin.initialize()
-
-# پردازش کامل
-result = await nazanin.process_message_complete(
-    user_id="user_123",
-    message="چطوری می‌تونم AI یاد بگیرم?"
-)
-
-print(result['final_response'])
+### برای کاربران:
+```
+✅ مکالمه طبیعی و انسانی
+✅ درک عمیق زمینه
+✅ پاسخ‌های خلاقانه
+✅ یادگیری از تجربه
+✅ شخصیت منحصر به فرد
 ```
 
-### مثال 2: استفاده مستقل از یک ماژول
-```python
-from src.utils import MessageClassifier
-
-classifier = MessageClassifier()
-result = await classifier.classify("سلام!")
-print(result['primary_category'])
+### برای توسعه‌دهندگان:
 ```
-
-### مثال 3: استفاده از Brain Simulation
-```python
-from src.ai import BrainSimulation
-
-brain = BrainSimulation(config)
-result = await brain.process("This is amazing!")
-print(result['dominant_emotion'])
+✅ معماری ماژولار
+✅ مستندات کامل
+✅ CI/CD آماده
+✅ Docker Support
+✅ قابل توسعه
 ```
 
 ---
 
-## 🎁 دانلود کامل
+## 🔄 چرخه زندگی
 
-فایل **nazanin_complete.zip** حاوی تمام پروژه است!
+```
+1. Perception (درک) → Respiratory System
+   ↓
+2. Security Check → Immune System
+   ↓
+3. Processing (پردازش) → Digestive System
+   ↓
+4. Thinking (تفکر) → Brain/Nervous System
+   ↓
+5. Personality Analysis → Living Persona
+   ↓
+6. Domain Analysis → 8 Agents
+   ↓
+7. Emotion Regulation → Endocrine System
+   ↓
+8. Decision Making → Metacognition
+   ↓
+9. AI Generation → API Manager
+   ↓
+10. Action (اجرا) → Musculoskeletal System
+   ↓
+11. Logging & Learning → Circulatory System
+   ↓
+12. Self-Evolution → Genetic Algorithm
+```
 
 ---
 
 ## 🤝 مشارکت
 
-این پروژه open source است و از مشارکت شما استقبال می‌کنیم! 🎉
+خوش‌حال میشیم کمک کنید! 
 
-### چطور مشارکت کنم؟
+1. Fork کنید
+2. Branch جدید بسازید (`git checkout -b feature/amazing`)
+3. تغییرات رو commit کنید (`git commit -m 'Add amazing feature'`)
+4. Push کنید (`git push origin feature/amazing`)
+5. Pull Request بزنید
 
-1. 🍴 Fork کن این repo رو
-2. 🌿 Branch جدید بساز (`git checkout -b feature/AmazingFeature`)
-3. ✍️ تغییراتت رو commit کن (`git commit -m 'Add some AmazingFeature'`)
-4. 📤 Push کن (`git push origin feature/AmazingFeature`)
-5. 🎯 یک Pull Request باز کن
-
-راهنمای کامل: **[CONTRIBUTING.md](CONTRIBUTING.md)**
+راهنمای کامل: [CONTRIBUTING.md](docs/CONTRIBUTING.md)
 
 ---
 
-## 📞 پشتیبانی و ارتباط
+## 📝 تغییرات
 
-### سوالات و مشکلات:
-- 📖 ابتدا [مستندات](docs/) را بخوانید
-- 🐛 [Issue](https://github.com/aria7670/nazanin_v1/issues) در GitHub باز کنید
-- 💬 در [Discussions](https://github.com/aria7670/nazanin_v1/discussions) بپرسید
-- 📧 Email: aria7670@gmail.com
+مشاهده تمام تغییرات: [CHANGELOG.md](docs/CHANGELOG.md)
 
-### لینک‌های مفید:
-- 🔗 [Repository](https://github.com/aria7670/nazanin_v1)
-- 📝 [Issues](https://github.com/aria7670/nazanin_v1/issues)
-- 🗣️ [Discussions](https://github.com/aria7670/nazanin_v1/discussions)
-- 📦 [Releases](https://github.com/aria7670/nazanin_v1/releases)
-
----
-
-## 📄 لایسنس
-
-MIT License - استفاده آزاد
+### نسخه 3.0.0 (2025-10-06)
+```
+🆕 Metacognition Engine
+🆕 Self-Evolution System
+🆕 Living Persona
+🆕 ChatGLM Support
+🆕 Enhanced Prompts
+```
 
 ---
 
-**ساخته شده با ❤️ برای Byte-Line**
+## 🙏 تشکر از
 
-**نسخه**: 2.0.0 Advanced  
-**تاریخ**: 2025-10-06  
-**وضعیت**: ✅ Production Ready
+- **نورا v8.0** - الهام‌بخش سیستم‌های آگاهی
+- جامعه Open Source
+- تمام کسانی که فیدبک دادند
+
+---
+
+## 📞 پشتیبانی
+
+- **Issues**: [GitHub Issues](https://github.com/aria7670/nazanin_v1/issues)
+- **مستندات**: پوشه `docs/`
+- **راهنماها**: فایل‌های `*.md`
+
+---
+
+## 📜 مجوز
+
+این پروژه تحت مجوز MIT منتشر شده است. [LICENSE](LICENSE)
+
+---
+
+## 🌟 ستاره بدید!
+
+اگه این پروژه رو دوست داشتید، یه ⭐ بهش بدید!
+
+---
+
+**ساخته شده با ❤️ توسط Aria Pourshajaii**
+
+**Version**: 3.0.0 - Nazanin-Nora Edition  
+**Status**: ✅ Production Ready  
+**Date**: 2025-10-06
+
+---
+
+## 🔗 لینک‌های مفید
+
+- 🌐 **GitHub**: https://github.com/aria7670/nazanin_v1
+- 📖 **Docs**: [docs/](docs/)
+- 🚀 **Quick Start**: [QUICK_START_BIO.md](docs/QUICK_START_BIO.md)
+- 💬 **Discussions**: [GitHub Discussions](https://github.com/aria7670/nazanin_v1/discussions)
+
+---
+
+```
+╔══════════════════════════════════════════════════════════╗
+║                                                          ║
+║         🧬 NAZANIN-NORA v3.0.0 🧠                       ║
+║                                                          ║
+║         Bio System + Advanced Consciousness              ║
+║         بدن + مغز + روح = زندگی                         ║
+║                                                          ║
+║         "یک هوش مصنوعی واقعاً زنده"                     ║
+║                                                          ║
+╚══════════════════════════════════════════════════════════╝
+```
