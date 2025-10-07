@@ -5,7 +5,7 @@ Body Systems - دستگاه‌های بدن
 import asyncio
 import logging
 from typing import Dict, List, Any
-from .cell_system import Organ, Brain, Heart, Lungs
+from nazanin.bio_system.cell_system import Organ, Brain, Heart, Lungs
 
 logger = logging.getLogger(__name__)
 

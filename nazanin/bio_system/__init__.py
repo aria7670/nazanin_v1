@@ -3,8 +3,8 @@ Biological System
 سیستم بیولوژیکی - شبیه‌سازی بدن انسان
 """
 
-from .cell_system import Cell, Tissue, Organ, Brain, Heart, Lungs
-from .body_systems import (
+from nazanin.bio_system.cell_system import Cell, Tissue, Organ, Brain, Heart, Lungs
+from nazanin.bio_system.body_systems import (
     BodySystem,
     NervousSystem,
     CirculatorySystem,

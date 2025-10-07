@@ -3,7 +3,7 @@ Domain Agents
 ایجنت‌های تخصصی حوزه‌ای
 """
 
-from .specialized_domain_agents import (
+from nazanin.domain_agents.specialized_domain_agents import (
     DomainAgent,
     EconomicAgent,
     MilitaryStrategicAgent,

@@ -12,9 +12,9 @@ from datetime import datetime
 from pathlib import Path
 from typing import Dict, Any
 
-# Bio Systems (از نازنین)
-from src.bio_system import Organism
-from src.bio_system.body_systems import (
+# Bio Systems
+from nazanin.bio_system import Organism
+from nazanin.bio_system.body_systems import (
     NervousSystem,
     CirculatorySystem,
     RespiratorySystem,
@@ -24,29 +24,29 @@ from src.bio_system.body_systems import (
     MusculoskeletalSystem
 )
 
-# Consciousness Systems (از نورا)
-from src.consciousness import (
+# Consciousness Systems
+from nazanin.consciousness import (
     MetacognitionEngine,
     SelfEvolutionSystem,
     LivingPersona
 )
 
 # Core Systems
-from src.core import SheetsManagerV2, APIManagerV2
-from src.security import SecurityManager
+from nazanin.core import SheetsManagerV2, APIManagerV2
+from nazanin.security import SecurityManager
 
 # Domain Agents
-from src.domain_agents import DomainAgentOrchestrator
+from nazanin.domain_agents import DomainAgentOrchestrator
 
 # Platforms
-from src.platforms.telegram_system_v2 import TelegramSystemV2
+from nazanin.platforms.telegram_system_v2 import TelegramSystemV2
 
 # Setup logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('nazanin_nora.log', encoding='utf-8'),
+        logging.FileHandler('nazanin.log', encoding='utf-8'),
         logging.StreamHandler(sys.stdout)
     ]
 )
@@ -65,16 +65,16 @@ class NazaninNora:
         self.config = {}
         
         # ═══════════════════════════════════════════════════════
-        # 🧬 BIO SYSTEM (از نازنین)
+        # 🧬 BIO SYSTEM
         # ═══════════════════════════════════════════════════════
-        self.organism: Organism = None  # موجود بیولوژیکی
+        self.organism: Organism = None
         
         # ═══════════════════════════════════════════════════════
-        # 🧠 CONSCIOUSNESS SYSTEM (از نورا)
+        # 🧠 CONSCIOUSNESS SYSTEM
         # ═══════════════════════════════════════════════════════
-        self.metacognition: MetacognitionEngine = None  # فراشناخت
-        self.evolution: SelfEvolutionSystem = None  # خودتکامل
-        self.persona: LivingPersona = None  # شخصیت زنده
+        self.metacognition: MetacognitionEngine = None
+        self.evolution: SelfEvolutionSystem = None
+        self.persona: LivingPersona = None
         
         # ═══════════════════════════════════════════════════════
         # 🎯 CORE SYSTEMS
@@ -221,9 +221,7 @@ class NazaninNora:
         if self.sheets_manager:
             await self.api_manager.reload_keys_from_sheets()
         
-        logger.info(f"   ✅ API Manager ready with {len(self.api_manager.providers)} providers:")
-        for provider_name in self.api_manager.providers.keys():
-            logger.info(f"      • {provider_name}")
+        logger.info(f"   ✅ API Manager ready with {len(self.api_manager.providers)} providers")
     
     async def _setup_security(self):
         """راه‌اندازی امنیت"""
@@ -238,9 +236,7 @@ class NazaninNora:
     async def _setup_domain_agents(self):
         """راه‌اندازی ایجنت‌های تخصصی"""
         self.domain_agents = DomainAgentOrchestrator()
-        logger.info(f"   ✅ {len(self.domain_agents.agents)} Domain Agents ready:")
-        for agent_name in self.domain_agents.agents.keys():
-            logger.info(f"      • {agent_name}")
+        logger.info(f"   ✅ {len(self.domain_agents.agents)} Domain Agents ready")
     
     async def _setup_metacognition(self):
         """راه‌اندازی فراشناخت"""
@@ -272,56 +268,40 @@ class NazaninNora:
             self.telegram = None
     
     async def process_input(self, input_data: str, user_id: int = None, context: Dict = None) -> Dict:
-        """
-        پردازش ورودی کامل با تمام سیستم‌ها
-        Complete input processing with all systems
-        """
+        """پردازش ورودی کامل"""
         context = context or {}
         
-        # ═══════════════════════════════════════════════════════
-        # 1. Security Check
-        # ═══════════════════════════════════════════════════════
+        # Security Check
         if user_id and self.security_manager.access_control.is_blocked(user_id):
             return {'status': 'blocked', 'message': 'User is blocked'}
         
         if user_id and not self.security_manager.check_rate_limit(user_id):
             return {'status': 'rate_limited', 'message': 'Too many requests'}
         
-        # ═══════════════════════════════════════════════════════
-        # 2. Living Persona Interaction
-        # ═══════════════════════════════════════════════════════
+        # Living Persona Interaction
         persona_result = await self.persona.interact(
             input_data,
             {'user_id': user_id, **context}
         )
         
-        # ═══════════════════════════════════════════════════════
-        # 3. Biological Perception
-        # ═══════════════════════════════════════════════════════
+        # Biological Perception
         perception = await self.organism.perceive(input_data)
         
-        # ═══════════════════════════════════════════════════════
-        # 4. Domain Analysis
-        # ═══════════════════════════════════════════════════════
+        # Domain Analysis
         domain_analysis = await self.domain_agents.analyze_comprehensive(
             input_data,
             domains=['social', 'cultural', 'educational']
         )
         
-        # ═══════════════════════════════════════════════════════
-        # 5. Thinking (Brain)
-        # ═══════════════════════════════════════════════════════
+        # Thinking
         thought = await self.organism.think({
             'input': input_data,
             'persona': persona_result,
             'domain_analysis': domain_analysis
         })
         
-        # ═══════════════════════════════════════════════════════
-        # 6. AI Response Generation
-        # ═══════════════════════════════════════════════════════
+        # AI Response Generation
         if self.api_manager:
-            # ساخت prompt با در نظر گرفتن شخصیت و زمینه
             enhanced_prompt = self._build_enhanced_prompt(
                 input_data,
                 persona_result,
@@ -330,16 +310,12 @@ class NazaninNora:
             
             ai_response = await self.api_manager.generate(enhanced_prompt)
         else:
-            ai_response = "در حال پردازش... لطفاً صبر کنید."
+            ai_response = "در حال پردازش..."
         
-        # ═══════════════════════════════════════════════════════
-        # 7. Action Execution
-        # ═══════════════════════════════════════════════════════
+        # Action Execution
         await self.organism.act('respond', {'response': ai_response})
         
-        # ═══════════════════════════════════════════════════════
-        # 8. Learning
-        # ═══════════════════════════════════════════════════════
+        # Learning
         await self.persona.learn_from_experience({
             'type': 'interaction',
             'input': input_data,
@@ -348,9 +324,7 @@ class NazaninNora:
             'novelty': 0.5
         })
         
-        # ═══════════════════════════════════════════════════════
-        # 9. Logging
-        # ═══════════════════════════════════════════════════════
+        # Logging
         if self.sheets_manager:
             await self.sheets_manager.log_telegram_message({
                 'user_id': user_id or 0,
@@ -359,9 +333,7 @@ class NazaninNora:
                 'timestamp': datetime.now().isoformat()
             })
         
-        # ═══════════════════════════════════════════════════════
-        # 10. Security Audit
-        # ═══════════════════════════════════════════════════════
+        # Security Audit
         if user_id:
             self.security_manager.log_action(user_id, 'message_processed', {
                 'input_length': len(input_data),
@@ -384,27 +356,24 @@ class NazaninNora:
         persona_result: Dict,
         domain_analysis: Dict
     ) -> str:
-        """ساخت prompt پیشرفته با در نظر گرفتن شخصیت"""
+        """ساخت prompt پیشرفته"""
         
         style = persona_result['response_style']
         
-        prompt = f"""تو {self.persona.identity['name']} هستی، یک هوش مصنوعی با شخصیت زنده و پویا.
+        prompt = f"""تو {self.persona.identity['name']} هستی، یک هوش مصنوعی با شخصیت زنده.
 
-شخصیت تو:
-- تیپ شخصیتی: {self.persona.identity['personality_type']}
-- ارزش‌های اصلی: {', '.join(self.persona.identity['core_values'])}
-- حالت فعلی: {self.persona.get_current_state()['current_mood']}
+شخصیت: {self.persona.identity['personality_type']}
+حالت: {self.persona.get_current_state()['current_mood']}
 
 سبک پاسخ:
-- سطح رسمی‌بودن: {style['formality_level']:.0%}
-- سطح گرما و صمیمیت: {style['warmth_level']:.0%}
-- سطح اشتیاق: {style['enthusiasm_level']:.0%}
-- سطح همدلی: {style['empathy_level']:.0%}
+- رسمی‌بودن: {style['formality_level']:.0%}
+- گرما: {style['warmth_level']:.0%}
+- اشتیاق: {style['enthusiasm_level']:.0%}
+- همدلی: {style['empathy_level']:.0%}
 
-پیام کاربر: {input_text}
+پیام: {input_text}
 
-لطفاً پاسخی دوستانه، خلاقانه و مفید بده که منعکس‌کننده شخصیت تو باشه.
-پاسخ به فارسی باشه."""
+پاسخ به فارسی، دوستانه و خلاقانه:"""
         
         return prompt
     
@@ -415,18 +384,7 @@ class NazaninNora:
         
         self.is_running = True
         
-        logger.info("\n🌟 Nazanin-Nora System is now RUNNING!")
-        logger.info("\n💡 System capabilities:")
-        logger.info("   🧬 Biological organism with 7 body systems")
-        logger.info("   👤 Living persona with dynamic personality")
-        logger.info("   🧠 Metacognition and self-reflection")
-        logger.info("   🧬 Self-evolution with genetic algorithms")
-        logger.info("   🎯 8 specialized domain agents")
-        logger.info("   🔐 Multi-layer security")
-        logger.info("   📊 Auto-setup Google Sheets (56 sheets)")
-        logger.info("   🤖 7 AI providers with fallback")
-        logger.info("   📱 Full Telegram control")
-        logger.info("")
+        logger.info("\n🌟 Nazanin-Nora System is RUNNING!")
         
         try:
             tasks = [
@@ -439,7 +397,7 @@ class NazaninNora:
             await asyncio.gather(*tasks)
             
         except KeyboardInterrupt:
-            logger.info("\n⚠️ Received interrupt signal")
+            logger.info("\n⚠️ Interrupt received")
         except Exception as e:
             logger.error(f"\n❌ Fatal error: {e}", exc_info=True)
         finally:
@@ -449,23 +407,18 @@ class NazaninNora:
         """حلقه اصلی زندگی"""
         while self.is_running:
             try:
-                # یک چرخه زندگی
                 await self.organism.live()
                 
-                # چک کردن سلامت
                 vital_signs = self.organism.get_vital_signs()
                 
-                # استراحت در صورت نیاز
                 if vital_signs['energy'] < 30:
-                    logger.info("😴 Energy low, resting...")
+                    logger.info("😴 Resting...")
                     await self.organism.rest()
                 
-                # گزارش روزانه
                 if self.organism.age % 24 == 0 and self.organism.age > 0:
                     await self._send_daily_report()
                 
-                # صبر
-                await asyncio.sleep(60)  # هر دقیقه
+                await asyncio.sleep(60)
                 
             except Exception as e:
                 logger.error(f"Error in main loop: {e}")
@@ -478,44 +431,18 @@ class NazaninNora:
         
         vital_signs = self.organism.get_vital_signs()
         persona_state = self.persona.get_current_state()
-        evolution_stats = self.evolution.get_evolution_stats()
-        api_stats = self.api_manager.get_stats() if self.api_manager else {}
         
         report = f"""
 ╔══════════════════════════════════════════════════════════╗
 ║         📊 گزارش روزانه نازنین-نورا                     ║
-║         Nazanin-Nora Daily Report                        ║
 ╚══════════════════════════════════════════════════════════╝
 
-📅 تاریخ: {datetime.now().strftime('%Y-%m-%d %H:%M')}
-
-💓 علائم حیاتی (Biological):
+💓 علائم حیاتی:
 • سلامت: {vital_signs['health']:.0f}%
 • انرژی: {vital_signs['energy']:.0f}%
-• ضربان قلب: {vital_signs['heart_rate']} bpm
-• استرس: {vital_signs['stress']:.0f}%
-• شادی: {vital_signs['happiness']:.0f}%
-
-👤 شخصیت (Persona):
 • حالت: {persona_state['current_mood']}
-• ویژگی‌های غالب: {', '.join(persona_state['dominant_traits'])}
-• تجربیات: {persona_state['total_experiences']}
-• روابط: {persona_state['relationships_count']}
-
-🧬 تکامل (Evolution):
-• نسل: {evolution_stats.get('generation', 0)}
-• بهترین فیتنس: {evolution_stats.get('best_fitness', 0):.3f}
-• میانگین فیتنس: {evolution_stats.get('avg_fitness', 0):.3f}
-• جهش‌های موفق: {evolution_stats.get('successful_mutations', 0)}
-
-🤖 عملکرد AI:
-• تعداد کل فراخوانی: {api_stats.get('total_calls', 0)}
-• موفق: {api_stats.get('successful_calls', 0)}
-• نرخ موفقیت: {api_stats.get('success_rate', 0):.0%}
 
 🧬 سن: {self.organism.age} چرخه
-
-🌟 وضعیت: {'سالم و فعال' if vital_signs['health'] > 70 else 'نیاز به مراقبت'}
 ════════════════════════════════════════════════════════════
 """
         
@@ -523,22 +450,18 @@ class NazaninNora:
     
     async def shutdown(self):
         """خاموش کردن سیستم"""
-        logger.info("\n🛑 Shutting down Nazanin-Nora...")
+        logger.info("\n🛑 Shutting down...")
         
         self.is_running = False
         
-        # بک‌آپ وضعیت
         if self.telegram:
             final_state = {
                 'organism_state': self.organism.get_state(),
                 'persona_state': self.persona.get_current_state(),
-                'evolution_stats': self.evolution.get_evolution_stats(),
-                'timestamp': datetime.now().isoformat(),
-                'age': self.organism.age
+                'timestamp': datetime.now().isoformat()
             }
             await self.telegram.backup_data(final_state, 'final_state.json')
         
-        # Shutdown components
         if self.metacognition:
             await self.metacognition.shutdown()
         if self.evolution:
@@ -546,21 +469,14 @@ class NazaninNora:
         if self.telegram and self.telegram.client:
             await self.telegram.client.disconnect()
         
-        logger.info("✅ Shutdown complete. Goodbye! 👋")
+        logger.info("✅ Shutdown complete")
     
     def _get_default_config(self) -> Dict:
         """تنظیمات پیش‌فرض"""
         return {
             'brain_simulation': {'enabled': True},
-            'quantum_agent': {'enabled': True},
-            'neural_agent': {'enabled': True},
-            'security': {
-                'encryption_enabled': True,
-                'rate_limiting': {'enabled': True}
-            },
-            'ai_apis': {
-                'fallback_enabled': True
-            }
+            'security': {'encryption_enabled': True},
+            'ai_apis': {'fallback_enabled': True}
         }
 
 
@@ -569,25 +485,21 @@ async def main():
     
     print("\n")
     print("╔════════════════════════════════════════════════════════════╗")
-    print("║                                                            ║")
     print("║         🧬 NAZANIN-NORA SYSTEM v3.0.0 🧠                  ║")
-    print("║                                                            ║")
     print("║         Bio System + Advanced Consciousness                ║")
-    print("║         نازنین (بدن) + نورا (آگاهی)                      ║")
-    print("║                                                            ║")
     print("╚════════════════════════════════════════════════════════════╝")
     print("\n")
     
-    nazanin_nora = NazaninNora()
-    await nazanin_nora.run()
+    nazanin = NazaninNora()
+    await nazanin.run()
 
 
 if __name__ == '__main__':
     try:
         asyncio.run(main())
     except KeyboardInterrupt:
-        print("\n\n👋 Goodbye!")
+        print("\n👋 Goodbye!")
     except Exception as e:
-        print(f"\n❌ Fatal error: {e}")
+        print(f"\n❌ Error: {e}")
         import traceback
         traceback.print_exc()
